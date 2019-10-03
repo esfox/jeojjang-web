@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+
+body {
+  background-color: #36393f;
+  /* background-color: #ddd; */
+  margin: 0;
+  font-family: 'Nunito', sans-serif;
+  color: #eee;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Small scrollbars for some panes */
+.scrollable {
+  overflow: hidden;
+}
+
+.scrollable:hover {
+  overflow-y: overlay;
+}
+
+.scrollable::-webkit-scrollbar {
+  width: .25rem;
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+  background-color: #666;
+}
+
+.scrollable::-webkit-scrollbar-track {
+  margin: .75rem 0;
+  background: none;
+}
+
+/* Global style for all modals */
+.modal-dialog {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.modal-header {
+  border-bottom: 1px solid #2f3136;
+}
+
+/* Close buttons */
+.close {
+  color: #eee;
+}
+
+.close:hover {
+  color: #eee;
+  opacity: .75;
+}
+
+/* code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+} */

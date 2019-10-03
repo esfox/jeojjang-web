@@ -1,0 +1,95 @@
+.fade.lightbox {
+  background-color: #00000099;
+}
+
+.lightbox .modal-dialog {
+  max-width: 90vw;
+}
+
+.lightbox .modal-content {
+  background-clip: unset;
+  background-color: transparent;
+  border: none;
+}
+
+.lightbox .modal-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 0;
+  padding: 0;
+}
+
+.lightbox .media {
+  max-width: 73vw;
+  max-height: 90vh;
+}
+
+.lightbox .media > iframe {
+  width: 65vw;
+  height: 65vh;
+}
+
+.lightbox .gif {
+  position: absolute;
+  right: 0;
+  width: 28px;
+  margin: 7px;
+  border-radius: 50%;
+  box-shadow: 0.5px 1px 3px #383838;
+}
+
+.lightbox-info {
+  max-width: 20vw;
+  max-height: 92vh;
+
+  margin-left: 1rem;  
+  word-wrap: break-word;
+  border-radius: .5rem;
+  background-color: #36393f;
+  box-shadow: 2px 4px 6px 2px #00000055;
+}
+
+.lightbox-info-section {
+  margin: .5rem .75rem;
+}
+
+.lightbox-info-section.footer {
+  margin-top: .1rem;
+  font-size: .76rem;
+  color: #999;
+}
+
+.lightbox-info-section.id {
+  float: left;
+}
+
+.lightbox-info-section.saved-date {
+  float: right;
+}
+
+.lightbox-info hr {
+  border-color: #2f3136;
+  background-color: #2f3136;
+  color: #2f3136;
+  margin: .5rem 0;
+}
+
+.lightbox-info .tags {
+  padding: 0 .5rem .5rem .5rem;
+}
+
+.lightbox-info a {
+  display: block;
+  color: cornflowerblue;
+}
+
+.lightbox-info a:hover {
+  color: rgb(153, 189, 255);
+}
+
+.lightbox .close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}

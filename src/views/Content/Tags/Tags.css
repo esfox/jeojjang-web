@@ -1,0 +1,35 @@
+.tags-button {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 4rem;
+  height: 4rem;
+  margin: 2rem;
+  z-index: 20;
+  display: flex;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #7289DA;
+  box-shadow: 2px 4px 10px 0 #222;
+}
+
+.tags-button:hover {
+  cursor: pointer;
+  background-color: rgb(95, 115, 187);
+}
+
+.tags-button > img {
+  width: 2.4rem;
+}
+
+.tags {
+  background-color: #36393f;
+}
+
+.tags .modal-content {
+  color: #ddd;
+}
+
+.tags .modal-body {
+  max-height: 36rem;
+}

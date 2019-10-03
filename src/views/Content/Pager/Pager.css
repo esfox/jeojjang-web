@@ -1,0 +1,39 @@
+.pager {
+  height: 7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: .9rem;
+}
+
+.pager button {
+  color: #ddd;
+  border: none;
+  margin: 1rem;
+  padding: .3rem .5rem;
+  border-radius: .5rem;
+  background-color: #4f545c;
+  box-shadow: 1px 2px 4px #00000044;
+}
+
+.pager button:hover {
+  background-color: #646a74;
+}
+
+.pager button > img {
+  width: 1.4rem;
+}
+
+.pager button:focus {
+  outline: none;
+}
+
+.pager button.disabled {
+  opacity: .5;
+}
+
+.pager button.disabled:hover {
+  background-color: #4f545c;
+  opacity: .5;
+}

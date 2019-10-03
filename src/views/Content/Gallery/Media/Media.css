@@ -1,0 +1,64 @@
+.media-container {
+  position: relative;
+  margin: 6px;
+}
+
+.media-container:hover {
+  cursor: pointer;
+}
+
+/* .media-container:hover > .tags-container {
+  visibility: visible;
+} */
+
+.media-container .media {
+  max-height: 250px;
+  box-shadow: 0px 2px 4px 2px #303030;
+}
+
+.media-container .youtube {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.media-container .youtube-icon {
+  position: absolute;
+  width: 70px;
+}
+
+.media-container .gif {
+  position: absolute;
+  right: 0;
+  width: 28px;
+  margin: 7px;
+  border-radius: 50%;
+  box-shadow: 0.5px 1px 3px #383838;
+}
+
+/* .tags-container {
+  visibility: hidden;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  min-width: 100%;
+  top: 100%;
+  z-index: 10;
+}
+
+.tags-container > div {
+  margin-top: 4px;
+  padding: 6px;
+  background-color: #eee;
+  box-shadow: 2px 2px 4px #222;
+  font-size: 17px;
+  color: #303030;
+}
+
+.tags-label {
+  font-weight: 600;
+} */
+
+/* .filtered {
+  display: none;
+} */
