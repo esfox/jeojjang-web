@@ -117,11 +117,6 @@ function Header({ search, setSearch })
             </button>
           </div>
         </form>
-        {/* <ul className="navbar-nav mr-auto">
-          <li className="nav-item">
-            <a className="nav-link" href="#">Tags</a>
-          </li>
-        </ul> */}
       </div>
     </div>
   );

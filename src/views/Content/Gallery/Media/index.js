@@ -57,11 +57,6 @@ function Media({ media/* , filtered */, setClicked })
           video.current.pause();
         setClicked(media);
       }} data-toggle="modal" data-target="#lightbox-modal">
-      {/* <div className="tags-container">
-        <div>
-          <span className="tags-label">Tags: </span>{tags.join(', ')}
-        </div>
-      </div> */}
       {element}
     </div>
   );

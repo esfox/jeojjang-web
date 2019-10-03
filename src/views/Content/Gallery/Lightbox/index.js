@@ -46,7 +46,8 @@ function Lightbox({ media, setSearch })
   // handle gfycat links
   if(link.includes('gfycat.com') && !link.includes('.gif'))
   {
-    element = <video className="media" src={link} loop autoPlay/>;
+    element = <video className="media" autoPlay loop preload="metadata"
+      src={link}/>;
 
     // change the mp4 gfycat link to the original
     link = link.replace('giant.', '').replace('.mp4', '');
@@ -54,7 +55,7 @@ function Lightbox({ media, setSearch })
 
   // handle mp4 video links
   else if(link.match(/\.mp4|\.webm/i))
-    element = <video className="media" src={link} preload="false" controls/>;
+    element = <video className="media" src={link} preload="metadata" controls/>;
 
   // handle youtube links
   else if(link.match(/youtube\.com|youtu\.be/g))

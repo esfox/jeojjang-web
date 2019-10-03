@@ -3,8 +3,6 @@ import './Tags.css';
 
 import { TagItems } from './TagItems';
 
-// import { testtags } from '../../../test-data';
-
 // `data` media loaded from Gallery component
 // `setSearch` is the function to set the tag filtering (used in search bar)
 function Tags({ media, setSearch })

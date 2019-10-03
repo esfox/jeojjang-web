@@ -13,18 +13,13 @@ function Gallery({ media, setSearch })
   // media to be shown in lightbox
   const [ clicked, setClicked ] = useState();
 
-  // array of media IDs of which to be filtered out
-  // const [ filtered, setFiltered ] = useState([]);
-
   return (
     <div className="gallery">
       <Lightbox media={clicked} setSearch={setSearch}/>
       {
         !media? null : media.map(media =>
         <Media key={`${media.id}-${media.link}`} media={media}
-          setClicked={setClicked}
-          /* filtered={!search || search.length === 0?
-            false : !filtered.includes(media.id)} *//>)
+          setClicked={setClicked}/>)
       }
     </div>
   );

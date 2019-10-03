@@ -22,19 +22,7 @@ function Content()
   const [ pages, setPages ] = useState();
   const [ page, setPage ] = useState(1);
   
-  // load how many pages of media are there
-  // useEffect(() =>
-  // {
-  //   async function loadPageCount()
-  //   {
-  //     const pages = getTestPages();
-  //     setPages(pages);
-  //   }
-
-  //   loadPageCount();
-  // }, [ setPages ]);
-
-  // Load images at start
+  // Load pages and media at start
   useEffect(() =>
   {
     // Get media from service and load
@@ -67,18 +55,6 @@ function Content()
     
     loadMedia();
   }, [ page, setMedia ]);
-
-  // Filter media when user searches (multiple tags separated by comma)
-  // useEffect(() =>
-  // {
-  //   const filteredMedia = !search || search === ''?
-  //     getTestMedia() :
-  //     searchTest(search);
-
-  //   setMedia(filteredMedia);
-    
-  //   // eslint-disable-next-line
-  // }, [ search, setMedia ]);
 
   return (
     <div>
