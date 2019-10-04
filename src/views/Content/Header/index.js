@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Header.css';
 
-import { getDiscordUserData } from '../../../services/apiService';
+// import { getDiscordUserData } from '../../../services/apiService';
 import { getTagsSearch, searchTags } from '../../../services/urlService';
-import { getTestMedia, getTestPages, searchTest, searchTestPages, testuser }
-  from '../../../test-data';
+// import { testuser } from '../../../test-data';
 
 // all common keys
 const keys = `\`1234567890-=qwertyuiop[]\\asdfghjkl;'zxcvbnm,./ `.split('');

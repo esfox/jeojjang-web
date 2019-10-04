@@ -19,7 +19,7 @@ function getDiscordUserData()
 
 async function getMediaPages()
 {
-  
+
 }
 
 async function getMedia()
@@ -40,4 +40,4 @@ async function getMedia()
   return data;
 }
 
-export { getDiscordUserData, getMedia };
+export { getDiscordUserData, getMediaPages, getMedia };

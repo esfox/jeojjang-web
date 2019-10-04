@@ -6,7 +6,7 @@ import { Gallery } from './Gallery';
 import { Pager } from './Pager';
 import { Tags } from './Tags';
 
-import { getMedia } from '../../services/apiService';
+// import { getMedia } from '../../services/apiService';
 import { getTagsSearch, getPage } from '../../services/urlService';
 import { getTestMedia, getTestPages, searchTest, searchTestPages }
   from '../../test-data';
