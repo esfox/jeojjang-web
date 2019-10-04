@@ -2,17 +2,14 @@ import React, { useState, useEffect, useRef } from 'react';
 import './Header.css';
 
 import { getDiscordUserData } from '../../../services/apiService';
-
-// const avatar = 'https://cdn.discordapp.com/avatars/247955535620472844'
-//   + '/1c8b5af7fc1dc396420e7ce81d1ffd0f.png?size=2048';
-// const username = 'esfox#2053';
+import { getTagsSearch, searchTags } from '../../../services/urlService';
+import { getTestMedia, getTestPages, searchTest, searchTestPages, testuser }
+  from '../../../test-data';
 
 // all common keys
 const keys = `\`1234567890-=qwertyuiop[]\\asdfghjkl;'zxcvbnm,./ `.split('');
 
-// `search` is the text in the search bar
-// `setSearch` is the function set the search (used in other components)
-function Header({ search, setSearch })
+function Header()
 {
   /** @type {{ current: HTMLElement }} */
   const userInfo = useRef();
@@ -27,7 +24,8 @@ function Header({ search, setSearch })
   // load the user's username and avatar
   const loadUser = async () =>
   {
-    const user = await getDiscordUserData();
+    // const user = await getDiscordUserData();
+    const user = null;
 
     // if there's no user, change the header's appearance
     if(!user)
@@ -55,23 +53,7 @@ function Header({ search, setSearch })
   useEffect(() =>
   {
     const input = searchInput.current;
-
-    // set the search to the initial value of the search input
-    setSearch(input.value);
-
-    // set the search state when typing
-    input.oninput = () =>
-    {
-      if(input.value.length === 0)
-        setSearch();
-    };
-
-    // reset the search state when 'esc' is pressed
-    input.onkeydown = ({ key }) =>
-    {
-      if(key === 'Escape')
-        setSearch();
-    };
+    input.value = getTagsSearch();
 
     // focus search input when user types
     document.onkeydown = ({ key }) =>
@@ -79,20 +61,15 @@ function Header({ search, setSearch })
       if(keys.includes(key))
         input.focus();
     }
-  }, [ setSearch ]);
+  }, []);
 
-  // side-effect for when the search state changes (when a tag is pressed)
-  useEffect(() =>
+  // function to handle the onsubmit of the search bar
+  const onSubmit = e =>
   {
-    if(!search)
-      return;
-      
-    const input = searchInput.current;
-    input.value = search;
-
-    if(input !== document.activeElement)
-      input.focus();
-  }, [ search ]);
+    e.preventDefault();
+    const tags = e.target.firstChild.firstChild.value;
+    searchTags(tags);
+  };
 
   return (
     <div className="header navbar navbar-expand sticky-top">
@@ -101,12 +78,7 @@ function Header({ search, setSearch })
         <h1 className="username">{username}</h1>
       </div>
       <div className="collapse navbar-collapse" ref={header}>
-        <form className="form-inline" id="search"
-          onSubmit={e =>
-          {
-            e.preventDefault();
-            setSearch(searchInput.current.value);
-          }}>
+        <form className="form-inline" id="search" onSubmit={onSubmit}>
           <div className="input-group">
             <input className="search-input form-control"
               type="search" aria-label="Search"

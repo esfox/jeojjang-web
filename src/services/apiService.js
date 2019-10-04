@@ -17,6 +17,11 @@ function getDiscordUserData()
   return request(user);
 }
 
+async function getMediaPages()
+{
+  
+}
+
 async function getMedia()
 {
   let data = await request(userMedia);

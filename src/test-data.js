@@ -280,6 +280,12 @@ function searchTestPages(search)
   return filteredPages(search).length;
 }
 
+const testuser =
+{
+  tag: 'esfox#2053',
+  avatarURL: 'https://cdn.discordapp.com/avatars/247955535620472844/1c8b5af7fc1dc396420e7ce81d1ffd0f.png?size=2048',
+};
+
 const testtags =
 [
   'this', 'is', 'a', 'test', 'for',
@@ -320,4 +326,11 @@ const testtags =
   'showing', 'tags', 'as', 'pills',
 ];
 
-export { getTestMedia, getTestPages, searchTest, searchTestPages, testtags };
+export {
+  getTestMedia,
+  getTestPages,
+  searchTest,
+  searchTestPages,
+  testtags,
+  testuser,
+};

@@ -3,9 +3,8 @@ import './Tags.css';
 
 import { TagItems } from './TagItems';
 
-// `data` media loaded from Gallery component
-// `setSearch` is the function to set the tag filtering (used in search bar)
-function Tags({ media, setSearch })
+// `media` is the media loaded from the backend
+function Tags({ media })
 {
   // `tags` is all the tags of the media loaded
   const [ tags, setTags ] = useState([]);
@@ -36,7 +35,7 @@ function Tags({ media, setSearch })
               </button>
             </div>
             <div className="modal-body scrollable">
-              <TagItems tags={tags} setSearch={setSearch}/>
+              <TagItems tags={tags}/>
             </div>
           </div>
         </div>

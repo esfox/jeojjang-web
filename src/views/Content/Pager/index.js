@@ -1,17 +1,26 @@
 import React from 'react';
 import './Pager.css';
 
-function Pager({ pages, page, setPage })
+import { getPage, changePage as goToPage } from '../../../services/urlService';
+
+// `pages` is the number of pages of the media loaded from the backend
+function Pager({ pages })
 {
   if(!pages || pages === 1)
     return <div className="pager"></div>;
 
+  // the page query parameter from the URL
+  const page = parseInt(getPage());
   const canBack = page > 1;
   const canNext = page < pages;
+
+  // function for handling changing pages
   const changePage = (next = true) =>
   {
-    window.scrollTo(0, 0);
-    setPage(next? ++page : --page);
+    const toPage = page + (next?
+      (canNext? 1 : page) :
+      (canBack? -1 : page));
+    goToPage(toPage);
   };
 
   return (

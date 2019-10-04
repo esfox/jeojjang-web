@@ -1,7 +1,10 @@
 import React from 'react';
 import './TagItems.css';
 
-function TagItems({ tags, setSearch })
+import { searchTags } from '../../../../services/urlService';
+
+// `tags` are the array of tags
+function TagItems({ tags })
 {
   if(!tags)
     return <></>;
@@ -11,8 +14,7 @@ function TagItems({ tags, setSearch })
       data-dismiss="modal" key={tag}
       onClick={({ target }) =>
       {
-        setSearch('');
-        setSearch(target.textContent);
+        searchTags(target.textContent);
       }}>
       {tag}
     </div>)

@@ -3,7 +3,7 @@ import './Media.css';
 
 import { getYouTubeID } from '../get-youtube-id';
 
-function Media({ media/* , filtered */, setClicked })
+function Media({ media, setClicked })
 {
   let { link, /* tags */ } = media;
 

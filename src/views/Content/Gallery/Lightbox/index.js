@@ -4,7 +4,7 @@ import './Lightbox.css';
 import { TagItems } from '../../Tags/TagItems';
 import { getYouTubeID } from '../../Gallery/get-youtube-id';
 
-function Lightbox({ media, setSearch })
+function Lightbox({ media })
 {
   const [ shown, setShown ] = useState(false);
 
@@ -88,7 +88,7 @@ function Lightbox({ media, setSearch })
               </div>
               <hr></hr>
               <div className="tags">
-                <TagItems tags={tags} setSearch={setSearch}/>
+                <TagItems tags={tags}/>
               </div>
               <hr></hr>
               <div className="lightbox-info-section">
