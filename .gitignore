@@ -24,7 +24,7 @@ yarn-error.log*
 
 # unnecessary files
 others
-test-data.js
+src/test-data.js
 
 # initial README.md
 README.md
