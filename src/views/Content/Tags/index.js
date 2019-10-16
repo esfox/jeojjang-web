@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Tags.css';
 
 import { TagItems } from './TagItems';
+import { getTags, isPublic } from '../../../services/apiService';
 
 // `media` is the media loaded from the backend
 function Tags({ media })
@@ -9,14 +10,27 @@ function Tags({ media })
   // `tags` is all the tags of the media loaded
   const [ tags, setTags ] = useState([]);
 
+  const loadTags = async () =>
+  {
+    const tags = await getTags();
+    setTags(tags
+      .map(({ name }) => name)
+      .sort((a, b) => a.localeCompare(b)));
+  }
+
   // side-effect for checking updates to the media loaded
   useEffect(() =>
   {
-    if(media)
-      setTags(media
-        .reduce((array, { tags }) => array.concat(tags), [])
-        .filter((tag, i, tags) => tags.indexOf(tag) === i)
-        .sort((a, b) => a.localeCompare(b)));
+    if(isPublic())
+      loadTags();
+    else
+    {
+      if(media)
+        setTags(media
+          .reduce((array, { tags }) => array.concat(tags), [])
+          .filter((tag, i, tags) => tags.indexOf(tag) === i)
+          .sort((a, b) => a.localeCompare(b)));
+    }
   }, [ media ]);
 
   return (

@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Header.css';
 
-// import { getDiscordUserData } from '../../../services/apiService';
+import { getDiscordUserData } from '../../../services/apiService';
 import { getTagsSearch, searchTags } from '../../../services/urlService';
-// import { testuser } from '../../../test-data';
 
 // all common keys
 const keys = `\`1234567890-=qwertyuiop[]\\asdfghjkl;'zxcvbnm,./ `.split('');
@@ -23,8 +22,7 @@ function Header()
   // load the user's username and avatar
   const loadUser = async () =>
   {
-    // const user = await getDiscordUserData();
-    const user = null;
+    const user = await getDiscordUserData();
 
     // if there's no user, change the header's appearance
     if(!user)

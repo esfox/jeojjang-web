@@ -6,10 +6,8 @@ import { Gallery } from './Gallery';
 import { Pager } from './Pager';
 import { Tags } from './Tags';
 
-// import { getMedia } from '../../services/apiService';
+import { getMedia, getMediaPages } from '../../services/apiService';
 import { getTagsSearch, getPage } from '../../services/urlService';
-import { getTestMedia, getTestPages, searchTest, searchTestPages }
-  from '../../test-data';
 
 function Content()
 {
@@ -22,18 +20,14 @@ function Content()
   // Get media from service and load
   const loadMedia = async () =>
   {
-    // const fetchedMedia = await getMedia();
-    // setMedia(fetchedMedia);
-
     const tags = getTagsSearch();
     const page = getPage();
-    const noSearch = !tags || tags === '';
 
-    const pages = noSearch? getTestPages() : searchTestPages(tags);
+    const pages = await getMediaPages(tags);
     setPages(pages);
-
-    const data = noSearch? getTestMedia(page) : searchTest(tags, page);
-    setMedia(data);
+    
+    const media = await getMedia(page, tags);
+    setMedia(media);
   }
   
   // Load pages and media at start

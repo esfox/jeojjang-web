@@ -1,11 +1,14 @@
 const discordID = window.location.pathname.slice(1);
-const user = `http://localhost:7777/user/discord/${discordID}`
-const userMedia = `http://localhost:7777/user_media/${discordID}`;
+const api = `http://localhost:7777/api`;
+const user = `${api}/user/${discordID}`
+const media = `${api}/media/${discordID}?limit=25`;
+const count = `${api}/count/${discordID}?`;
+const tags = `${api}/tags`;
 
-function request(api)
+function request(link, plain)
 {
-  return fetch(api)
-    .then(response => response.json())
+  return fetch(link)
+    .then(response => !plain? response.json() : response.text())
     .catch(console.error);
 }
 
@@ -17,27 +20,49 @@ function getDiscordUserData()
   return request(user);
 }
 
-async function getMediaPages()
+async function getMediaPages(tags)
 {
+  let link = count;
+  if(tags)
+    link += `&tags=${tags}`;
 
+  const pages = await request(link, true);
+  return Math.ceil(pages / 25);
 }
 
-async function getMedia()
+async function getMedia(page = 1, tags)
 {
-  let data = await request(userMedia);
-  data = data.map(({ id, media, tags, createdAt }) =>
+  let link = media;
+  if(page)
+    link += `&page=${page}`;
+  if(tags)
+    link += `&tags=${tags}`;
+
+  let data = await request(link);
+  data = data.map(({ id, link, tags, createdAt }) =>
   {
     createdAt = new Date(createdAt);
     const item =
     {
       id,
-      link: media.link,
-      tags: tags.map(tag => tag.name),
-      savedAt: createdAt,
+      link,
+      tags,
+      savedAt: `${createdAt.getMonth() + 1}/${createdAt.getDate()}/`
+        + createdAt.getFullYear(),
     };
     return item;
   });
   return data;
 }
 
-export { getDiscordUserData, getMediaPages, getMedia };
+function getTags()
+{
+  return request(tags);
+}
+
+function isPublic()
+{
+  return !discordID;
+}
+
+export { getDiscordUserData, getMediaPages, getMedia, getTags, isPublic };
