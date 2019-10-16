@@ -1,5 +1,8 @@
 const discordID = window.location.pathname.slice(1);
-const api = `http://localhost:7777/api`;
+const api = process.env.PROJECT_DOMAIN?
+  `https://${process.env.PROJECT_DOMAIN}.glitch.me/api` :
+  `http://localhost:7777/api`;
+
 const user = `${api}/user/${discordID}`
 const media = `${api}/media/${discordID}?limit=25`;
 const count = `${api}/count/${discordID}?`;
