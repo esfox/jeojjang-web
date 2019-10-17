@@ -30,7 +30,7 @@ function Media({ media, setClicked })
   }
 
   // handle video links
-  else if(link.match(/\.mp4|\.webm/i))
+  else if(link.match(/\.mp4|\.webm|\.mov/i))
     element = <video className="media" src={link} controls preload="metadata"
       onClick={e => e.preventDefault()} controlsList="nofullscreen"/>;
 
