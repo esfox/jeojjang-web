@@ -41,7 +41,7 @@ function Lightbox({ media })
   let savedAt = media? media.savedAt : '';
 
   // default element (`img` for images)
-  let element = <img className="media" src={link} alt="test lightbox"/>;
+  let element = <img className="media" src={link} alt="unsupported format"/>;
 
   // handle gfycat links
   if(link.includes('gfycat.com') && !link.includes('.gif'))

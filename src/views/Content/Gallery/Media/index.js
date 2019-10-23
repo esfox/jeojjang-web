@@ -11,7 +11,7 @@ function Media({ media, setClicked })
   const video = useRef();
   
   // default element (`img` for images)
-  let element = <img className="media" src={link} alt="media item"/>;
+  let element = <img className="media" src={link} alt="unsupported format"/>;
 
   // handle gfycat links
   if(link.includes('gfycat.com') && !link.includes('.gif'))
@@ -22,7 +22,7 @@ function Media({ media, setClicked })
         <img className="gif"
           src="https://miro.medium.com/max/2048/1*aKQW5LeudHfno2eopICRBQ.png"
           alt="gfycat icon"/>
-        <video className="media" ref={video} loop preload="metadata"
+        <video className="media" ref={video} loop preload="metadata" muted
           src={`https://thumbs.gfycat.com/${gfycatID}-mobile.mp4`}
           onMouseOver={({ target }) => target.play()}
           onMouseLeave={({ target }) => target.pause()}/>
@@ -43,7 +43,7 @@ function Media({ media, setClicked })
     element =
       <div className="youtube">
         <img className="youtube-icon" alt="youtube icon" src="youtube.svg"/>
-        <img className="media" alt="media item"
+        <img className="media" alt="unsupported format"
           src={`https://i.ytimg.com/vi/${youTubeID}/hqdefault.jpg`}/>
       </div>;
   }
