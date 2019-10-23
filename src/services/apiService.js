@@ -7,7 +7,7 @@ const api = 'https://jeojjang.glitch.me/api';
 const user = `${api}/user/${discordID}`
 const media = `${api}/media/${discordID}?limit=25`;
 const count = `${api}/count/${discordID}?`;
-const tags = `${api}/tags`;
+const tags = `${api}/tags/${discordID}`;
 
 function request(link, plain)
 {
@@ -43,6 +43,9 @@ async function getMedia(page = 1, tags)
     link += `&tags=${tags}`;
 
   let data = await request(link);
+  if(!data)
+    return [];
+    
   data = data.map(({ id, link, tags, createdAt }) =>
   {
     createdAt = new Date(createdAt);

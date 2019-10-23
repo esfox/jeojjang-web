@@ -26,10 +26,41 @@
   background-color: #36393f;
 }
 
+.tags-search {
+  background-color: #40444b;
+  padding: .375rem .75rem;
+  border-radius: .25rem;
+  color: #ddd;
+  border: none;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.tags-search::placeholder {
+  color: #999;
+}
+
+.tags-search:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+.tags .modal-header {
+  align-items: center;
+  padding: 0;
+}
+
+.tags .modal-title {
+  margin: 1rem;
+}
+
 .tags .modal-content {
   color: #ddd;
 }
 
 .tags .modal-body {
   max-height: 36rem;
+}
+
+.tags button.close {
+  margin: 0;
 }
