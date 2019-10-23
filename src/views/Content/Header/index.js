@@ -4,9 +4,6 @@ import './Header.css';
 import { getDiscordUserData } from '../../../services/apiService';
 import { getTagsSearch, searchTags } from '../../../services/urlService';
 
-// all common keys
-const keys = `\`1234567890-=qwertyuiop[]\\asdfghjkl;'zxcvbnm,./ `.split('');
-
 function Header()
 {
   /** @type {{ current: HTMLElement }} */
@@ -25,16 +22,17 @@ function Header()
     const user = await getDiscordUserData();
 
     // if there's no user, change the header's appearance
-    if(!user)
+    if(user)
     {
-      userInfo.current.style = 'display: none;';
-      header.current.className += ' justify-content-center';
+      const { tag, avatarURL } = user;
+      setUsername(tag);
+      setAvatar(avatarURL);
+      
+      userInfo.current.style = 'display: flex;';
       return;
     }
-
-    const { tag, avatarURL } = user;
-    setUsername(tag);
-    setAvatar(avatarURL);
+    else 
+      header.current.className += ' justify-content-center';
   }
 
   // Load Discord usernamd and avatar on start
@@ -51,13 +49,6 @@ function Header()
   {
     const input = searchInput.current;
     input.value = getTagsSearch();
-
-    // focus search input when user types
-    document.onkeydown = ({ key }) =>
-    {
-      if(keys.includes(key))
-        input.focus();
-    }
   }, []);
 
   // function to handle the onsubmit of the search bar
@@ -78,7 +69,7 @@ function Header()
         <form className="form-inline" id="search" onSubmit={onSubmit}>
           <div className="input-group">
             <input className="search-input form-control"
-              type="search" aria-label="Search"
+              type="search" aria-label="Search" autoFocus
               placeholder="Search by tag/s..." spellCheck="false"
               ref={searchInput}></input>
             <button className="btn search-icon" form="search">
